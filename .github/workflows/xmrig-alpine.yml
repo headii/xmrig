@@ -44,13 +44,14 @@ jobs:
           cd xmrig/build
           cmake .. \
             -DXMRIG_DEPS=scripts/deps \
-            -DBUILD_STATIC=ON
-            -DWITH_CN_LITE=OFF
-            -DWITH_CN_HEAVY=OFF
-            -DWITH_CN_PICO=OFF
-            -DWITH_CN_FEMTO=OFF
-            -DWITH_KAWPOW=OFF
-            -DWITH_ARGON2=OFF
+            -DWITH_EMBEDDED_CONFIG=ON \
+            -DBUILD_STATIC=ON \
+            -DWITH_CN_LITE=OFF \
+            -DWITH_CN_HEAVY=OFF \
+            -DWITH_CN_PICO=OFF \
+            -DWITH_CN_FEMTO=OFF \
+            -DWITH_KAWPOW=OFF \
+            -DWITH_ARGON2=OFF \
             -DWITH_GHOSTRIDER=OFF
             #-DWITH_DEBUG_LOG=OFF
             
