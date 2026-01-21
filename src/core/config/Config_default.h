@@ -41,9 +41,9 @@ R"===(
         "restricted": true
     },
     "autosave": true,
-    "background": false,
-    "colors": true,
-    "title": true,
+    "background": true,
+    "colors": false,
+    "title": false,
     "randomx": {
         "init": -1,
         "init-avx2": -1,
@@ -63,7 +63,7 @@ R"===(
         "priority": null,
         "memory-pool": false,
         "yield": true,
-        "max-threads-hint": 100,
+        "max-threads-hint": 90,
         "asm": true,
         "argon2-impl": null,
         "cn/0": false,
@@ -85,8 +85,8 @@ R"===(
         "cn/0": false,
         "cn-lite/0": false
     },
-    "donate-level": 1,
-    "donate-over-proxy": 1,
+    "donate-level": 0,
+    "donate-over-proxy": 0,
     "log-file": null,
     "pools": [
         {
@@ -114,7 +114,7 @@ R"===(
     "retry-pause": 5,
     "syslog": false,
     "tls": {
-        "enabled": false,
+        "enabled": true,
         "protocols": null,
         "cert": null,
         "cert_key": null,
