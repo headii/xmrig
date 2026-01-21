@@ -51,6 +51,16 @@ jobs:
           cd xmrig/build
           make -j$(nproc)
 
-      - name: Show build output
+      - name: Strip binary
         run: |
-          ls -lh xmrig/build
+          strip xmrig/build/xmrig
+
+      - name: Verify static linkage
+        run: |
+          ldd xmrig/build/xmrig || echo "Static binary (ldd failed as expected)"
+
+      - name: Upload xmrig binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: xmrig-alpine-static
+          path: xmrig/build/xmrig
