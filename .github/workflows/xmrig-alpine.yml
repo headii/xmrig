@@ -1,0 +1,56 @@
+name: Build xmrig (Alpine)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: alpine:latest
+
+    steps:
+      - name: Install build dependencies
+        run: |
+          apk update
+          apk add --no-cache \
+            git \
+            make \
+            cmake \
+            libstdc++ \
+            gcc \
+            g++ \
+            automake \
+            libtool \
+            autoconf \
+            linux-headers
+
+      - name: Clone xmrig
+        run: |
+          git clone https://github.com/xmrig/xmrig.git
+
+      - name: Build xmrig dependencies
+        run: |
+          mkdir -p xmrig/build
+          cd xmrig/scripts
+          ./build_deps.sh
+
+      - name: Configure xmrig
+        run: |
+          cd xmrig/build
+          cmake .. \
+            -DXMRIG_DEPS=../scripts/deps \
+            -DBUILD_STATIC=ON
+
+      - name: Compile xmrig
+        run: |
+          cd xmrig/build
+          make -j$(nproc)
+
+      - name: Show build output
+        run: |
+          ls -lh xmrig/build
