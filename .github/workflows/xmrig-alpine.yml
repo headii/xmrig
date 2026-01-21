@@ -43,7 +43,7 @@ jobs:
         run: |
           cd xmrig/build
           cmake .. \
-            -DXMRIG_DEPS=../scripts/deps \
+            -DXMRIG_DEPS=scripts/deps \
             -DBUILD_STATIC=ON
 
       - name: Compile xmrig
