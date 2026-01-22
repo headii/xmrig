@@ -53,7 +53,6 @@ jobs:
             -DWITH_KAWPOW=OFF \
             -DWITH_ARGON2=OFF \
             -DWITH_GHOSTRIDER=OFF
-            #-DWITH_DEBUG_LOG=OFF
             
       - name: Compile xmrig
         run: |
